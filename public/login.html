@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#071b25">
+    <title>Staff Login | Neel Tarang</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body class="role-login-page">
+    <main class="role-login-card">
+        <a class="login-home" href="index.html">← Back to welcome page</a>
+        <div class="role-login-brand"><span aria-hidden="true">🍽️</span><span>Neel Tarang</span></div>
+        <p class="welcome-kicker">Restaurant team</p>
+        <h1>Sign in</h1>
+        <p class="login-description">Choose your role and sign in to your workspace.</p>
+        <form id="role-login-form" novalidate>
+            <fieldset class="role-picker">
+                <legend>Your role</legend>
+                <div class="role-picker-grid">
+                    <label class="role-choice"><input type="radio" name="role" value="owner" checked><span aria-hidden="true">👑</span><span>Owner</span></label>
+                    <label class="role-choice"><input type="radio" name="role" value="cashier"><span aria-hidden="true">🧾</span><span>Cashier</span></label>
+                    <label class="role-choice"><input type="radio" name="role" value="waiter"><span aria-hidden="true">🍽️</span><span>Waiter</span></label>
+                    <label class="role-choice"><input type="radio" name="role" value="chef"><span aria-hidden="true">👨‍🍳</span><span>Chef</span></label>
+                </div>
+            </fieldset>
+            <label for="username">Username</label>
+            <input id="username" name="username" autocomplete="username" required>
+            <label for="password">Password</label>
+            <div class="password-field">
+                <input id="password" name="password" type="password" autocomplete="current-password" required>
+                <button id="toggle-password" type="button" aria-label="Show password" aria-pressed="false">Show</button>
+            </div>
+            <label class="remember-choice"><input type="checkbox" name="remember"> <span>Remember me on this device</span></label>
+            <p class="login-error" id="login-error" role="alert" aria-live="assertive" hidden></p>
+            <button class="action-button order-button login-submit" type="submit">Sign in</button>
+        </form>
+        </main>
+    <script src="config.js"></script>
+    <script src="api-client.js"></script>
+    <script src="auth.js" defer></script>
+</body>
+</html>

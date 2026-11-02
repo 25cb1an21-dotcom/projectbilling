@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0a3540">
+    <title>Welcome to Neel Tarang</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mascot.css">
+</head>
+<body class="welcome-page" id="top">
+    <canvas id="ambient-background" aria-hidden="true"></canvas>
+    <main>
+        <section class="welcome-hero" aria-labelledby="welcome-title">
+            <div class="welcome-content">
+                <!-- Change the restaurant name and tagline here. -->
+                <p class="welcome-kicker">Fresh from our kitchen</p>
+                <h1 id="welcome-title">Neel Tarang</h1>
+                <p class="welcome-tagline">Good food, warm moments, and a table waiting for you.</p>
+                <div class="welcome-actions">
+                    <a class="action-button order-button" href="order.html">Order Food</a>
+                    <a class="action-button owner-button" href="login.html">Owner Login</a>
+                </div>
+                <a class="scroll-hint" href="#food-gallery">Discover our kitchen <span aria-hidden="true">↓</span></a>
+            </div>
+            <span class="hero-orbit orbit-one" aria-hidden="true"></span>
+            <span class="hero-orbit orbit-two" aria-hidden="true"></span>
+        </section>
+
+        <section class="food-gallery" id="food-gallery" aria-labelledby="gallery-title">
+            <div class="gallery-heading">
+                <p class="welcome-kicker">Made with care</p>
+                <h2 id="gallery-title">A taste of what's cooking</h2>
+            </div>
+            <div class="carousel" aria-roledescription="carousel" aria-label="Food gallery">
+                <div class="carousel-track" id="carousel-track">
+                    <figure class="carousel-slide is-active">
+                        <img src="https://i.pinimg.com/736x/a5/0d/19/a50d19522a4968a37a204b358a8a9bab.jpg" alt="Rich fudgy eggless chocolate brownies with a crackly top and melted chocolate chunks">
+                        <figcaption>Comfort, served fresh</figcaption>
+                    </figure>
+                    <figure class="carousel-slide">
+                        <img src="https://i.pinimg.com/736x/75/92/f5/7592f529505c44e6b4f2df40204f0c2d.jpg" alt="A bowl of spicy chilli garlic noodles with vegetables and chopsticks">
+                        <figcaption>Bold, vibrant flavours</figcaption>
+                    </figure>
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-control" id="previous-slide" type="button" aria-label="Previous food image">←</button>
+                    <p id="slide-status" aria-live="polite">1 / 2</p>
+                    <button class="carousel-control" id="next-slide" type="button" aria-label="Next food image">→</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="welcome-footer footer-fade" id="site-footer" aria-label="Restaurant information">
+        <div class="footer-inner">
+            <section class="footer-brand" id="about-us" aria-labelledby="footer-brand-name">
+                <a class="footer-logo" href="#top" aria-label="Neel Tarang home"><span aria-hidden="true">🍽️</span><span id="footer-brand-name">Neel Tarang</span></a>
+                <p>A little joy in every bite. Fresh flavours and warm hospitality, made for sharing.</p>
+            </section>
+            <div class="footer-columns">
+                <details class="footer-accordion" open>
+                    <summary>Quick Links</summary>
+                    <ul>
+                        <li><a href="#about-us">About Us</a></li>
+                        <li><a href="order.html">Menu</a></li>
+                        <li><a href="order.html">Order Food</a></li>
+                        <li><a href="login.html">Owner Login</a></li>
+                        <li><a class="footer-support" href="mailto:hello@yourrestaurant.com">Support</a></li>
+                    </ul>
+                </details>
+                <details class="footer-accordion" open>
+                    <summary>Legal</summary>
+                    <ul>
+                        <li><a class="footer-legal-link" data-subject="Privacy Policy" href="mailto:hello@yourrestaurant.com?subject=Privacy%20Policy">Privacy Policy</a></li>
+                        <li><a class="footer-legal-link" data-subject="Pricing and Refund" href="mailto:hello@yourrestaurant.com?subject=Pricing%20and%20Refund">Pricing and Refund</a></li>
+                        <li><a class="footer-legal-link" data-subject="Terms and Conditions" href="mailto:hello@yourrestaurant.com?subject=Terms%20and%20Conditions">Terms and Conditions</a></li>
+                    </ul>
+                </details>
+                <details class="footer-accordion" open>
+                    <summary>Company</summary>
+                    <ul>
+                        <li><a class="footer-legal-link" data-subject="Feedback" href="mailto:hello@yourrestaurant.com?subject=Feedback">Feedback</a></li>
+                        <li><a class="footer-legal-link" data-subject="Jobs" href="mailto:hello@yourrestaurant.com?subject=Jobs">Jobs</a></li>
+                        <li><a href="#food-gallery">Gallery</a></li>
+                        <li><a href="order.html">Offers</a></li>
+                    </ul>
+                </details>
+                <section class="footer-contact" aria-labelledby="footer-contact-heading">
+                    <h2 id="footer-contact-heading">Contact</h2>
+                    <div id="footer-contact-details"></div>
+                    <a class="footer-map" href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer">View on Map</a>
+                    <button class="footer-edit-contact" id="edit-contact-button" type="button" hidden>Edit contact</button>
+                </section>
+            </div>
+            <!-- Replace these platform URLs with the restaurant's profile links. -->
+            <section class="footer-social" aria-label="Follow and contact us">
+                <h2>Stay connected</h2>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle class="social-dot" cx="18" cy="6" r="1"/></svg>
+                    </a>
+                    <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 21v-8h3l.5-4H14V7c0-1.2.4-2 2-2h1.7V1.4A22 22 0 0 0 15.2 1C12.7 1 11 2.5 11 5.4V9H8v4h3v8z"/></svg>
+                    </a>
+                    <a class="social-whatsapp" href="https://wa.me/918349539933" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.5 0 .1 5.4.1 12c0 2.1.6 4.2 1.6 6L0 24l6.2-1.6a12 12 0 0 0 5.9 1.5h.1c6.6 0 12-5.4 12-12a11.8 11.8 0 0 0-3.7-8.4ZM12.1 22a10 10 0 0 1-5.1-1.4l-.4-.2-3.7 1 1-3.6-.3-.4A10 10 0 1 1 12.1 22Zm5.5-7.5c-.3-.1-1.6-.8-1.9-.9-.3-.1-.5-.1-.7.2-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.4.1-.6l.5-.5.3-.5c.1-.2 0-.4 0-.5 0-.2-.7-1.7-.9-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.1 3c.1.2 2 3.1 4.8 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.6-.7 1.8-1.3.2-.6.2-1.1.2-1.3-.1-.2-.3-.3-.6-.5Z"/></svg>
+                    </a>
+                    <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8ZM9.6 15.6V8.4l6.3 3.6z"/></svg>
+                    </a>
+                </div>
+            </section>
+            <div class="footer-bottom">
+                <p>© <span id="footer-year"></span> <span id="footer-copyright-name">Neel Tarang</span>. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <div class="contact-editor" id="contact-editor" hidden>
+        <form class="contact-editor-card" id="contact-editor-form" role="dialog" aria-modal="true" aria-labelledby="contact-editor-title">
+            <div class="contact-editor-heading">
+                <h2 id="contact-editor-title">Edit contact details</h2>
+                <button class="contact-editor-close" type="button" aria-label="Close contact editor">×</button>
+            </div>
+            <label for="contact-online-phone">Online / delivery phone</label>
+            <input id="contact-online-phone" name="onlinePhone" type="tel" autocomplete="tel" required>
+            <label for="contact-offline-phone">Dine-in phone</label>
+            <input id="contact-offline-phone" name="offlinePhone" type="tel" autocomplete="tel" required>
+            <label for="contact-email">Email address</label>
+            <input id="contact-email" name="email" type="email" autocomplete="email" required>
+            <label for="contact-address">Full address</label>
+            <textarea id="contact-address" name="address" rows="3" required></textarea>
+            <div class="contact-editor-actions">
+                <button class="contact-editor-cancel" type="button">Cancel</button>
+                <button class="contact-editor-save" type="submit">Save contact details</button>
+            </div>
+        </form>
+    </div>
+    <button class="back-to-top-fallback" id="back-to-top-floating" type="button" aria-label="Back to top" hidden>↑ <span>Top</span></button>
+    <script src="config.js"></script>
+    <script src="api-client.js"></script>
+    <script src="background.js" defer></script>
+    <script src="script.js" defer></script>
+    <script src="mascot.js" defer></script>
+</body>
+</html>

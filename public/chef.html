@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#071b25">
+    <title>Chef Dashboard | Neel Tarang</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body class="staff-dashboard" data-role="chef">
+    <header class="dashboard-header">
+        <a class="dashboard-logo" href="index.html" aria-label="Neel Tarang home">🍽️ <span>Neel Tarang</span></a>
+        <div class="dashboard-user">
+            <span class="user-name" id="user-name"></span>
+            <span class="role-badge" id="role-badge"></span>
+            <button type="button" class="logout-button" data-logout>Log out</button>
+        </div>
+    </header>
+    <div class="dashboard-layout">
+        <aside class="dashboard-sidebar" aria-label="Chef navigation"><nav id="dashboard-nav"></nav></aside>
+        <main class="dashboard-main" id="dashboard-content" tabindex="-1"></main>
+    </div>
+    <nav class="mobile-tabs" id="mobile-tabs" aria-label="Dashboard navigation"></nav>
+    <script src="config.js"></script>
+    <script src="api-client.js"></script>
+    <script src="data.js" defer></script>
+    <script src="auth.js" defer></script>
+    <script src="dashboard.js" defer></script>
+</body>
+</html>

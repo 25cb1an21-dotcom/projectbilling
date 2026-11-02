@@ -1,0 +1,14 @@
+{
+  "name": "neel-tarang-restaurant",
+  "version": "1.0.0",
+  "description": "Restaurant ordering and staff dashboard app: static frontend plus a Node.js + SQLite backend.",
+  "private": true,
+  "main": "server.js",
+  "engines": { "node": ">=22.13.0" },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test"
+  },
+  "license": "UNLICENSED"
+}

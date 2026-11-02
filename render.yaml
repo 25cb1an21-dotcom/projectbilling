@@ -1,0 +1,28 @@
+# Render Blueprint: https://render.com/docs/blueprint-spec
+# A persistent disk is required so the SQLite database survives restarts and redeploys
+# (disks need a paid instance type on Render).
+services:
+  - type: web
+    name: neel-tarang-restaurant
+    runtime: node
+    plan: starter
+    buildCommand: echo "no build step"
+    startCommand: node server.js
+    healthCheckPath: /api/health
+    disk:
+      name: restaurant-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: DATA_DIR
+        value: /var/data
+      - key: TRUST_PROXY
+        value: "true"
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: OWNER_USERNAME
+        value: owner
+      - key: OWNER_PASSWORD
+        sync: false        # you will be asked to enter this in the Render dashboard
+      - key: SEED_DEMO_USERS
+        value: "false"

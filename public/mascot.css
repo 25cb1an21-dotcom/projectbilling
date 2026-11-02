@@ -1,0 +1,265 @@
+:root {
+    --mascot-teal: #088395;
+    --mascot-deep: #0a4d68;
+    --mascot-orange: #f39838;
+    --mascot-cream: #fffaf0;
+}
+
+.mascot-widget {
+    position: fixed;
+    right: 16px;
+    bottom: 18px;
+    z-index: 36;
+    display: grid;
+    justify-items: end;
+    gap: 8px;
+    pointer-events: none;
+    font-family: "Trebuchet MS", "Segoe UI", system-ui, sans-serif;
+}
+
+.ordering-page .mascot-widget {
+    bottom: 92px;
+}
+
+.mascot-bubble {
+    position: relative;
+    width: min(250px, calc(100vw - 32px));
+    min-height: 48px;
+    padding: 12px 14px;
+    border: 1px solid rgba(10, 77, 104, .16);
+    border-radius: 16px 16px 4px 16px;
+    background: #fff;
+    box-shadow: 0 8px 26px rgba(10, 53, 64, .2);
+    color: #173a43;
+    font-size: .9rem;
+    line-height: 1.4;
+    pointer-events: auto;
+}
+
+.mascot-controls {
+    display: flex;
+    justify-content: flex-end;
+    gap: 5px;
+    margin-top: 8px;
+}
+
+.mascot-control {
+    min-width: 32px;
+    min-height: 30px;
+    border: 1px solid #d5e5e8;
+    border-radius: 9px;
+    padding: 3px 8px;
+    background: #f3fbfc;
+    color: var(--mascot-deep);
+    cursor: pointer;
+    font: inherit;
+    font-size: .75rem;
+    font-weight: 700;
+}
+
+.mascot-control:hover {
+    background: #dff5f8;
+}
+
+.mascot-bubble::after {
+    position: absolute;
+    right: 34px;
+    bottom: -8px;
+    width: 14px;
+    height: 14px;
+    border-right: 1px solid rgba(10, 77, 104, .12);
+    border-bottom: 1px solid rgba(10, 77, 104, .12);
+    background: #fff;
+    content: "";
+    transform: rotate(45deg);
+}
+
+.mascot-character {
+    position: relative;
+    width: 110px;
+    height: 124px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    pointer-events: auto;
+    filter: drop-shadow(0 7px 8px rgba(4, 33, 43, .22));
+    animation: mascot-bob 3s ease-in-out infinite;
+}
+
+.mascot-character:focus-visible,
+.mascot-control:focus-visible,
+.mascot-restore:focus-visible {
+    outline: 3px solid #05bfdb;
+    outline-offset: 3px;
+}
+
+.mascot-svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.mascot-arm {
+    transform-box: fill-box;
+    transform-origin: 50% 12%;
+    transition: transform .22s ease;
+}
+
+.mascot-widget[data-mood="wave"] .mascot-arm-wave {
+    animation: mascot-wave .8s ease-in-out infinite alternate;
+}
+
+.mascot-face-smile,
+.mascot-face-sad,
+.mascot-face-thinking {
+    display: none;
+}
+
+.mascot-widget[data-mood="happy"] .mascot-face-smile,
+.mascot-widget[data-mood="wave"] .mascot-face-smile,
+.mascot-widget[data-mood="celebrate"] .mascot-face-smile {
+    display: block;
+}
+
+.mascot-widget[data-mood="sad"] .mascot-face-sad,
+.mascot-widget[data-mood="thinking"] .mascot-face-thinking {
+    display: block;
+}
+
+.mascot-widget[data-mood="sad"] .mascot-eyes,
+.mascot-widget[data-mood="thinking"] .mascot-eyes {
+    transform: translateY(2px);
+}
+
+.mascot-eyes {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: mascot-blink 4.8s infinite;
+}
+
+.mascot-widget.is-pointing .mascot-arm-point {
+    transform: rotate(68deg) translateY(-2px);
+}
+
+.mascot-widget.is-jumping .mascot-character {
+    animation: mascot-jump .55s ease-out;
+}
+
+.mascot-widget[data-mood="sad"] .mascot-character {
+    animation: mascot-sad .45s ease-in-out 2;
+}
+
+.mascot-confetti {
+    position: fixed;
+    z-index: 38;
+    top: -12px;
+    left: var(--confetti-x);
+    width: 8px;
+    height: 12px;
+    border-radius: 2px;
+    background: var(--confetti-color);
+    pointer-events: none;
+    animation: mascot-confetti-fall 1.5s cubic-bezier(.15, .55, .4, 1) forwards;
+}
+
+.mascot-restore {
+    position: fixed;
+    right: 14px;
+    bottom: 14px;
+    z-index: 36;
+    border: 0;
+    border-radius: 999px;
+    padding: 10px 14px;
+    background: var(--mascot-deep);
+    color: #fff;
+    box-shadow: 0 6px 20px rgba(10, 53, 64, .25);
+    cursor: pointer;
+    font: 700 .88rem "Trebuchet MS", "Segoe UI", system-ui, sans-serif;
+}
+
+.ordering-page .mascot-restore {
+    bottom: 88px;
+}
+
+.mascot-widget[hidden],
+.mascot-restore[hidden] {
+    display: none;
+}
+
+@keyframes mascot-bob {
+    0%, 100% { transform: translateY(0) }
+    50% { transform: translateY(-6px) }
+}
+
+@keyframes mascot-blink {
+    0%, 44%, 48%, 100% { transform: scaleY(1) }
+    46% { transform: scaleY(.1) }
+}
+
+@keyframes mascot-wave {
+    from { transform: rotate(-24deg) }
+    to { transform: rotate(28deg) }
+}
+
+@keyframes mascot-jump {
+    0%, 100% { transform: translateY(0) }
+    45% { transform: translateY(-24px) rotate(-5deg) }
+    70% { transform: translateY(0) rotate(4deg) }
+}
+
+@keyframes mascot-sad {
+    0%, 100% { transform: translateY(0) rotate(0) }
+    50% { transform: translateY(3px) rotate(-5deg) }
+}
+
+@keyframes mascot-confetti-fall {
+    to { transform: translate3d(var(--confetti-drift), 100vh, 0) rotate(720deg); opacity: 0 }
+}
+
+@media (max-width: 600px) {
+    .mascot-widget {
+        right: 8px;
+        bottom: 10px;
+        gap: 5px;
+    }
+
+    .ordering-page .mascot-widget {
+        bottom: 82px;
+    }
+
+    .mascot-character {
+        width: 76px;
+        height: 88px;
+    }
+
+    .mascot-bubble {
+        width: min(220px, calc(100vw - 24px));
+        padding: 9px 11px;
+        font-size: .82rem;
+    }
+
+    .mascot-restore {
+        right: 8px;
+        bottom: 8px;
+    }
+
+    .ordering-page .mascot-restore {
+        bottom: 78px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .mascot-character,
+    .mascot-eyes,
+    .mascot-arm-wave,
+    .mascot-widget[data-mood="sad"] .mascot-character,
+    .mascot-widget.is-jumping .mascot-character,
+    .mascot-confetti {
+        animation: none !important;
+    }
+
+    .mascot-arm {
+        transition: none;
+    }
+}
